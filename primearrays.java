@@ -1,33 +1,17 @@
 import java.util.*;
 
-public class PrimeArrays {
-    public static boolean isPrime(int n) {
-        if (n < 2) return false;
-        for (int i = 2; i * i <= n; i++) {
-            if (n % i == 0) return false;
-        }
-        return true;
+public class removeDup {
+  public static void main(String[] args) {
+    System.out.println("duplecate elements");
+    System.out.println("2,3,3,5,7,7,11,11");
+    List<Integer> list = Arrays.asList(2, 3, 3, 5, 7, 7, 11, 11);
+    List<Integer> updatedList = new ArrayList<>();
+    for (Integer data : list) {
+      if (!updatedList.contains(data)) {
+        updatedList.add(data);
+      }
     }
-
-    public static ArrayList<Integer> UniqueFilter(ArrayList<Integer> list) {
-        return new ArrayList<>(new HashSet<>(list));
-    }
-
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        
-        System.out.print("Enter the number of elements: ");
-        int n = scanner.nextInt();
-
-        ArrayList<Integer> primes = new ArrayList<>();
-        System.out.println("Enter the numbers:");
-        for (int i = 0; i < n; i++) {
-            int num = scanner.nextInt();
-            if (isPrime(num)) primes.add(num);
-        }
-
-        System.out.println("Prime numbers: " + primes);
-        System.out.println("Unique prime numbers: " + UniqueFilter(primes));
-        scanner.close();
-    }
+    System.out.println("after updateing the list");
+    System.out.println(updatedList);
+  }
 }
